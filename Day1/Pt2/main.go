@@ -1,12 +1,12 @@
 package main
 
 import (
-	"os"
-	"fmt"
 	"bufio"
-	"strings"
-	"strconv"
+	"fmt"
+	"os"
 	"slices"
+	"strconv"
+	"strings"
 )
 
 func main() {
@@ -36,11 +36,11 @@ func main() {
 	for _, a := range list_a {
 		count := 0
 		for _, b := range list_b {
-			if(a == b) {
+			if a == b {
 				count += 1
 				continue
 			}
-			if(count != 0 && a != b) {
+			if count != 0 && a != b {
 				break
 			}
 		}
@@ -48,4 +48,3 @@ func main() {
 	}
 	fmt.Println(similarity)
 }
-

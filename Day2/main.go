@@ -1,16 +1,14 @@
 package main
 
 import (
-	//"os"
+	"os"
 	"bufio"
-	"crypto/x509"
 	"fmt"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	/*
 	file, err := os.Open("input")
 	if err != nil {
 		panic(err)
@@ -18,28 +16,36 @@ func main() {
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
-	*/
-	file := `1 2 3 4 5
-5 6 7 8 9`
-	scanner := bufio.NewScanner(strings.NewReader(file))
 	count := 0
 	for scanner.Scan() {
 		line := scanner.Text()
 		numsRaw := strings.Split(line, " ")
-
-		curNum, _ := strconv.Atoi(numsRaw[0])
-		for _, n := range numsRaw[1:] {
-			num, _ := strconv.Atoi(n)
-			if num != curNum {
-				if Abs(num - curNum) < 3 && Abs(num - curNum) > 0 {
-					curNum = num
-					continue
-			}
-
-			// checks if within acceptable range but doesnt do anything, maybe seperate into func that takes line and says whether or not its legit
-			}
+		if IsValidLine(numsRaw) {
+			count += 1
 		}
 	}
+	fmt.Println(count)
+}
+
+func IsValidLine(line []string) bool {
+	lastNum, _ := strconv.Atoi(line[0])
+	nextNum, _ := strconv.Atoi(line[1])
+	isIncreasing := lastNum > nextNum
+
+	for _, n := range line[1:] {
+		nextNum, _ = strconv.Atoi(n)
+
+		if (isIncreasing && lastNum < nextNum) || (!isIncreasing && lastNum > nextNum) {
+			return false
+		}
+
+		if Abs(nextNum-lastNum) <= 3 && Abs(nextNum-lastNum) > 0 {
+			lastNum = nextNum
+		} else {
+			return false
+		}
+	}
+	return true
 }
 
 func Abs(x int) int {

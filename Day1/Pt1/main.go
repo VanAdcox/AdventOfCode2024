@@ -1,12 +1,12 @@
 package main
 
 import (
-	"os"
-	"fmt"
 	"bufio"
-	"strings"
-	"strconv"
+	"fmt"
+	"os"
 	"slices"
+	"strconv"
+	"strings"
 )
 
 func main() {
