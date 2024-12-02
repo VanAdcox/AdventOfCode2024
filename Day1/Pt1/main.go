@@ -36,7 +36,7 @@ func main() {
 	for i, a := range list_a {
 		sum += Abs(a - list_b[i])
 	}
-	fmt.Printf("Heres the total distance shawty: %d", sum)
+	fmt.Print(sum)
 }
 
 func Abs(x int) int {
