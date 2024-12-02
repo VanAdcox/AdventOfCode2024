@@ -35,6 +35,8 @@ func main() {
 					curNum = num
 					continue
 			}
+
+			// checks if within acceptable range but doesnt do anything, maybe seperate into func that takes line and says whether or not its legit
 			}
 		}
 	}
