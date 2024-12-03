@@ -4,13 +4,12 @@ The importance of a few testcases to understand how your code is working
 How slices work under the hood, particularly in assignments like slice1 := slice2
 */
 
-
 package main
 
 import (
-	"os"
 	"bufio"
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -24,20 +23,20 @@ func main() {
 
 	scanner := bufio.NewScanner(file)
 	/*
-	Test data, all cases should pass
-	file := `48 46 47 49 51 54 56
-1 1 2 3 4 5
-1 2 3 4 5 5
-5 1 2 3 4 5
-1 4 3 2 1
-1 6 7 8 9
-1 2 3 4 3
-9 8 7 6 7
-7 10 8 10 11
-29 28 27 25 26 25 22 20
-`
-	scanner := bufio.NewScanner(strings.NewReader(file))
-*/
+		Test data, all cases should pass
+		file := `48 46 47 49 51 54 56
+	1 1 2 3 4 5
+	1 2 3 4 5 5
+	5 1 2 3 4 5
+	1 4 3 2 1
+	1 6 7 8 9
+	1 2 3 4 3
+	9 8 7 6 7
+	7 10 8 10 11
+	29 28 27 25 26 25 22 20
+	`
+		scanner := bufio.NewScanner(strings.NewReader(file))
+	*/
 	count := 0
 	for scanner.Scan() {
 		line := scanner.Text()
@@ -53,8 +52,6 @@ func main() {
 	}
 	fmt.Println(count)
 }
-
-
 
 func IsValidLine(line []string) bool {
 	lastNum, _ := strconv.Atoi(line[0])
