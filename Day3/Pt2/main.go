@@ -1,3 +1,14 @@
+/*
+# What I Learned From Day 3
+- Basic RegEx! I've never had a need for it before now and after an hour writing
+my own terrible implementation for parsing the file I decided it was time to learn.
+Showed me the importance of the right tool for the job isn't neccesarrily the one
+youre most experienced with.
+- Get a clear and accurate understanding of the requirements. Most of my time spent
+was wasted not realizing that the do() or don't() state carries between lines,
+something I'd known if I'd read
+*/
+
 package main
 
 import (
